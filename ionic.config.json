@@ -1,0 +1,7 @@
+{
+  "name": "Grab-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
