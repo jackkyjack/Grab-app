@@ -1,0 +1,28 @@
+<ion-header [translucent]="true" class="header">
+  <ion-toolbar class="header-toolbar">
+    <ion-button (click)="goBack()" class="header-btn" fill="clear" >
+      <ion-icon name="arrow-back-outline" style="color: #333333;font-size: 24px;"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-searchbar #searchBar placeholder="sushi" showCancelButton="focus" (ionInput)="handleInput($event)" style="margin-top: 60px;" />
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content/>
+    </ion-refresher>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" *ngFor="let item of result">
+            <ion-card class="content-card">
+              <img [src]="item.image" alt="{{item.title}}">
+              <ion-card-header>
+                <ion-card-title>{{item.title}}</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+</ion-content>

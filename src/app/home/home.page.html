@@ -36,7 +36,7 @@
           </ion-button> 
         </ion-col>
         <ion-col style="display: flex; flex-direction: column; width:25%;" >
-          <ion-button  style="--background: transparent; --box-shadow: none;">
+          <ion-button routerLink="/food" style="--background: transparent; --box-shadow: none;">
             <div>
               <ion-icon name="fast-food" style="font-size:48px; color: #00b14f;"/>
               <p style="text-align: center; font-size:10px; text-transform: capitalize; color: black;">Food</p>
@@ -69,20 +69,39 @@
               <ion-icon name="cash" style="font-size: 24px; color: #00b14f; position:absolute;bottom:12px;right:12px;"/>
             </div>
           </ion-segment-button>
-          <ion-segment-button value="balance" style="--indicator-color: transparent; width:160px; height: 60px;">
+          <ion-segment-button value="Discover" style="--indicator-color: transparent; width:160px; height: 60px;">
             <div style="display:flex; flex-direction: column; position:relative; background:#9a9a9a29; width:160px; height: 60px; border-radius: 5px;">
               <p style="font-size: 13px; text-transform: capitalize; color: #494949; position:absolute;top:0;left:12px;">Discover</p>
               <p style="font-size: 14px; text-transform: capitalize; color: #000000; font-weight:bold; position:absolute;bottom:0;left:12px;">Dine Out Deals</p>
               <ion-icon name="pizza" style="font-size: 24px; color: #00b14f; position:absolute;bottom:12px;right:12px;"/>
             </div>
           </ion-segment-button>
-          <ion-segment-button value="balance" style=" --indicator-color: transparent; width:140px; height: 60px;">
+          <ion-segment-button value="GrabRewards" style=" --indicator-color: transparent; width:140px; height: 60px;">
             <div style="display:flex; flex-direction: column; position:relative; background:#9a9a9a29; width:140px; height: 60px; border-radius: 5px;">
               <p style="font-size: 13px; text-transform: capitalize; color: #494949; position:absolute;top:0;left:12px;">GrabRewards</p>
               <p style="font-size: 14px; text-transform: capitalize; color: #000000; font-weight:bold; position:absolute;bottom:0;left:12px;">0</p>
               <ion-icon name="logo-bitcoin" style="font-size: 24px; color: #00b14f; position:absolute;bottom:12px;right:12px;"/>
             </div>
           </ion-segment-button>
+        </ion-segment>
+      </ion-row>
+      <ion-row  style="display: flex; margin-top:12px;">
+        <ion-title style="font-size:16px; margin-bottom:6px;">Restaurants you may like</ion-title>
+        <ion-icon name="arrow-forward-outline" style="font-size:24px; padding-right:10px;"/>
+        
+        <ion-segment [scrollable]="true"  style="padding: 5px; display:flex; gap:10px;">
+          <ion-segment-button value="food1" style=" --indicator-color: transparent; width:180px; height: 200px; background:#000000;">
+            
+          </ion-segment-button> 
+          <ion-segment-button value="food2" style=" --indicator-color: transparent; width:180px; height: 200px; background:#000000;">
+            
+          </ion-segment-button> 
+          <ion-segment-button value="food3" style=" --indicator-color: transparent; width:180px; height: 200px; background:#000000;">
+            
+          </ion-segment-button> 
+          <ion-segment-button value="food4" style=" --indicator-color: transparent; width:180px; height: 200px; background:#000000;">
+            
+          </ion-segment-button> 
         </ion-segment>
       </ion-row>
     </ion-grid>
