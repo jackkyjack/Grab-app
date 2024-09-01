@@ -23,8 +23,27 @@
         </ion-row>
       </ion-grid>
     </ion-card-content> -->
+    <ion-button 
+      style="
+        margin: 60px 0px 0px 0px; 
+        padding: 0; 
+        display: flex; 
+        width: 100%; 
+        --background: transparent; 
+        --box-shadow: none; 
+        --border: 1px solid #ccc; 
+        --border-radius: 10px; 
+        --color: #777; 
+        text-align: left; 
+        align-items: center; 
+        justify-content: flex-start;
+      "
+      routerLink="/food"
+    >
+      <ion-icon name="search" style="margin-left: 10px; color: #777;"></ion-icon>
+      <span style="flex: 1; padding-left: 10px;">sushi</span>
+    </ion-button>
 
-    <ion-searchbar #searchBar placeholder="sushi" showCancelButton="focus" (ionInput)="handleInput($event)" style="margin-top: 60px;" />
     <ion-grid>
       <ion-row>
         <ion-col style="display: flex; flex-direction: column; width:25%;" >

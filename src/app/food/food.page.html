@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-searchbar #searchBar placeholder="sushi" showCancelButton="focus" (ionInput)="handleInput($event)" style="margin-top: 60px;" />
+  <ion-searchbar #searchBar placeholder="sushi" showCancelButton="focus" (ionInput)="handleInput($event)" />
     <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
       <ion-refresher-content/>
     </ion-refresher>
