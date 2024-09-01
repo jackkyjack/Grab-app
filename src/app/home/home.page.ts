@@ -1,13 +1,121 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { CommonModule } from '@angular/common';
+import { Location } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonRefresher, IonRefresherContent, IonFooter, IonButton, IonIcon, IonCard, IonInput, IonSearchbar, IonSegment, IonSegmentButton, IonLabel, IonCardHeader, IonCardTitle, IonCardContent, IonList, IonItem, IonCol, IonGrid, IonRow } from '@ionic/angular/standalone';
+import { RouterModule } from '@angular/router';
+import { addIcons } from 'ionicons';
+import { logoIonic } from 'ionicons/icons';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent],
+  imports: [
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    CommonModule,
+    FormsModule,
+    IonFooter,
+    IonButton,
+    RouterModule,
+    IonIcon,
+    IonCard,
+    IonInput,
+    IonSearchbar,
+    IonSegment,
+    IonSegmentButton,
+    IonLabel,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardContent,
+    IonList,
+    IonItem,
+    IonCol,
+    IonGrid,
+    IonRow,
+    IonRefresher,
+    IonRefresherContent,],
 })
 export class HomePage {
-  constructor() {}
+
+  selectedValue: string = 'home';
+
+  constructor(private location: Location) {
+    addIcons({ logoIonic });
+    this.shuffleArray(this.result);
+  }
+
+  shuffleArray(array: any[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
+  handleRefresh(event: any) {
+    setTimeout(() => {
+      this.shuffleArray(this.result);
+      event.target.complete();
+    }, 1000);
+  }
+
+  onSegmentChange(event: any) {
+    this.selectedValue = event.detail.value;
+    
+  }
+
+  goBack() {
+    this.location.back();
+  }
+
+  public shops = [
+    { title: '1test', image: '../assets/images/foods/images.jpg' },
+    { title: '2test', image: '../assets/images/foods/images.jpg' },
+    { title: '3test', image: '../assets/images/foods/images.jpg' },
+    { title: '4test', image: '../assets/images/foods/images.jpg' },
+    { title: '5test', image: '../assets/images/foods/images.jpg' },
+    { title: '6test', image: '../assets/images/foods/images.jpg' },
+    { title: '7test', image: '../assets/images/foods/images.jpg' },
+    { title: '8test', image: '../assets/images/foods/images.jpg' },
+    { title: '9test', image: '../assets/images/foods/images.jpg' },
+    { title: '1test', image: '../assets/images/foods/images.jpg' },
+    { title: '2test', image: '../assets/images/foods/images.jpg' },
+    { title: '3test', image: '../assets/images/foods/images.jpg' },
+    { title: '4test', image: '../assets/images/foods/images.jpg' },
+    { title: '5test', image: '../assets/images/foods/images.jpg' },
+    { title: '6test', image: '../assets/images/foods/images.jpg' },
+    { title: '7test', image: '../assets/images/foods/images.jpg' },
+    { title: '8test', image: '../assets/images/foods/images.jpg' },
+    { title: '9test', image: '../assets/images/foods/images.jpg' },
+    { title: '1test', image: '../assets/images/foods/images.jpg' },
+    { title: '2test', image: '../assets/images/foods/images.jpg' },
+    { title: '3test', image: '../assets/images/foods/images.jpg' },
+    { title: '4test', image: '../assets/images/foods/images.jpg' },
+    { title: '5test', image: '../assets/images/foods/images.jpg' },
+    { title: '6test', image: '../assets/images/foods/images.jpg' },
+    { title: '7test', image: '../assets/images/foods/images.jpg' },
+    { title: '8test', image: '../assets/images/foods/images.jpg' },
+    { title: '9test', image: '../assets/images/foods/images.jpg' },
+    { title: '1test', image: '../assets/images/foods/images.jpg' },
+    { title: '2test', image: '../assets/images/foods/images.jpg' },
+    { title: '3test', image: '../assets/images/foods/images.jpg' },
+    { title: '4test', image: '../assets/images/foods/images.jpg' },
+    { title: '5test', image: '../assets/images/foods/images.jpg' },
+    { title: '6test', image: '../assets/images/foods/images.jpg' },
+    { title: '7test', image: '../assets/images/foods/images.jpg' },
+    { title: '8test', image: '../assets/images/foods/images.jpg' },
+    { title: '9test', image: '../assets/images/foods/images.jpg' },
+  ];  
+
+  public result = [...this.shops];
+
+  handleInput(event: any) {
+    const query = event.target.value.toLowerCase();
+    this.result = this.shops.filter(item =>item.title.toLowerCase().includes(query));
+  }
+
 }

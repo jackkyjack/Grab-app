@@ -1,0 +1,25 @@
+<ion-header [translucent]="true" class="header">
+  <ion-toolbar class="header-toolbar">
+    <ion-button routerLink="/" slot="start" style="position: absolute;" fill="clear">
+      <ion-icon name="chevron-back-outline" style="color: #333333;font-size: 24px;"></ion-icon>
+    </ion-button>
+    Get Started
+    <!-- <ion-title style="font-size: 14px;color:black;text-transform: capitalize;font-weight: bold;position:absolute;right:0;">Get Started</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content">
+  <ion-card class="content-container">
+    <div>Phone Number</div>
+    <div class="content-input">
+      <ion-input class="content-input-region" type="number" placeholder="+66" ></ion-input>
+      <ion-input class="content-input-number" type="tel" placeholder="81 123 4567" ></ion-input>
+    </div>
+  </ion-card>
+</ion-content>
+
+<ion-footer class="footer">
+  <ion-button routerLink="/home" shape="round" class="login-button">
+    Next
+  </ion-button>
+</ion-footer>

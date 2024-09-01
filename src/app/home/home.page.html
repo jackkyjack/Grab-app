@@ -1,20 +1,89 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header class="header"> 
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="content" Scroll-y="true">
+  
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ng-container *ngIf="selectedValue === 'home'">
+    <ion-searchbar #searchBar placeholder="sushi" showCancelButton="focus" (ionInput)="handleInput($event)" style="margin-top: 60px;" />
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content/>
+    </ion-refresher>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" *ngFor="let item of result">
+            <ion-card class="content-card">
+              <img [src]="item.image" alt="{{item.title}}">
+              <ion-card-header>
+                <ion-card-title>{{item.title}}</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ng-container>
+
+  <ng-container *ngIf="selectedValue === 'reader-outline'">
+    <ion-card-content>
+      <div>
+        <h2>Activity Page</h2>
+
+      </div>
+    </ion-card-content>
+  </ng-container>
+
+  <ng-container *ngIf="selectedValue === 'wallet-outline'">
+    <ion-card-content>
+      <div>
+        <h2>Payment Page</h2>
+
+      </div>
+    </ion-card-content>
+  </ng-container>
+
+  <ng-container *ngIf="selectedValue === 'chatbox-ellipses-outline'">
+    <ion-card-content>
+      <div>
+        <h2>Message Page</h2>
+
+      </div>
+    </ion-card-content>
+  </ng-container>
 </ion-content>
+
+<ion-footer class="footer">
+  <ion-segment (ionSelect)="onSegmentChange($event)" [scrollable]="true" [value]="selectedValue">
+    <ion-segment-button value="home" class="footer-btn" style="--indicator-color: transparent;">
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <ion-icon [name]="selectedValue === 'home' ? 'home' : 'home-outline'" style="font-size: 24px;"/>
+        Home
+      </div>
+    </ion-segment-button>
+    <ion-segment-button value="reader-outline" class="footer-btn" style="--indicator-color: transparent;">
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <ion-icon [name]="selectedValue === 'reader-outline' ? 'reader' : 'reader-outline'" style="font-size: 24px;"/>
+        Activity
+      </div>
+    </ion-segment-button>
+    <ion-segment-button value="wallet-outline" class="footer-btn" style="--indicator-color: transparent;">
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <ion-icon [name]="selectedValue === 'wallet-outline' ? 'wallet' : 'wallet-outline'" style="font-size: 24px;"/>
+        Payment
+      </div>
+    </ion-segment-button>
+    <ion-segment-button value="chatbox-ellipses-outline" class="footer-btn" style="--indicator-color: transparent;">
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <ion-icon [name]="selectedValue === 'chatbox-ellipses-outline' ? 'chatbox-ellipses' : 'chatbox-ellipses-outline'" style="font-size: 24px;"/>
+        Message
+      </div>
+    </ion-segment-button>
+    <ion-segment-button (click)="goBack()" value="person-circle-outline" class="footer-btn" style="--indicator-color: transparent;">
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <ion-icon [name]="selectedValue === 'person-circle-outline' ? 'person-circle' : 'person-circle-outline'" style="font-size: 24px;"/>
+        Account
+      </div>
+    </ion-segment-button>
+  </ion-segment>
+</ion-footer>
